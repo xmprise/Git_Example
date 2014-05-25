@@ -1,32 +1,23 @@
 package gitRobot;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Head{
+public class Head {
+	//private Body body; unused
+	private Foot foot = new Foot();
+	private Arm arm = new Arm();
+	private Hand hand = new Hand();
+	private Leg leg = new Leg();;
 	
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		String commandMessage;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		while(true){
-			System.out.println("Enter Command");
-			
-			commandMessage = br.readLine();
-			
-			if(commandMessage.equals("Exit")){
-				break;
-			}
-			
-			switch(commandMessage){
-			case "Run" :
-				
-				break;
-			}
+	public void Command(String command){
+		switch(command){
+		case "walk":
+			leg.walk(foot);
+			break;
+		case "run":
+			leg.run(foot);
+			break;
+		case "grab":
+			arm.grab(hand);
+			break;
 		}
-		
 	}
-
 }

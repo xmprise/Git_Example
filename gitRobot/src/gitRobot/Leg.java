@@ -3,16 +3,27 @@ package gitRobot;
 public class Leg {
 	int runCount = 0;
 	
-	public String legState(){
-		if(runCount >= 10){
-			return "NO";
+	private boolean state(){
+		if(runCount >= 2){
+			return false;
 		}else{
 			runCount++;
-			return "OK";
+			return true;
 		}
 	}
 	
-	public void run(){
-		
+	public void walk(Foot foot){
+		if(foot instanceof Foot == true && state() == true){
+			foot.walk();
+		}
+		else{
+			System.out.println("I'm not carry out your command. sorry");
+		}
+	}
+	
+	public void run(Foot foot){
+		if(foot instanceof Foot == true){
+			foot.run();
+		}
 	}
 }
